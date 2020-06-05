@@ -56,12 +56,7 @@ class Dog
         SELECT * FROM dogs WHERE id = ?
         SQL
         dog = DB[:conn].execute(sql,id)
-        new_dog_hash = {}
-        new_dog_hash[:id] = dog[0][0]
-        new_dog_hash[:name] = dog[0][1]
-        new_dog_hash[:breed] = dog[0][2]
-        new_dog = self.new(new_dog_hash)
-        new_dog     
+        self.new_from_db    
     end
 
     def self.find_or_create_by(name:, breed:)
